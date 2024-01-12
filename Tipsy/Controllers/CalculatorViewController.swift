@@ -22,7 +22,8 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var twentyPctButton: UIButton!
     
     @IBOutlet weak var splitNumberLabel: UILabel!
-    
+    var tipValue: Float = 0.0
+    var splitValue: Int = 0
     
     
     @IBAction func tipChanged(_ sender: UIButton) {
@@ -31,34 +32,30 @@ class CalculatorViewController: UIViewController {
             zeroPctButton.isSelected = false
             twentyPctButton.isSelected = false
             sender.isSelected = true
+            tipValue = 0.1
         }
         if sender == twentyPctButton {
             tenPctButton.isSelected = false
             zeroPctButton.isSelected = false
             sender.isSelected = true
+            tipValue = 0.2
         }
         if sender == zeroPctButton {
             tenPctButton.isSelected = false
             twentyPctButton.isSelected = false
             sender.isSelected = true
+            tipValue = 0.0
         }
-//        print(zeroPctButton.isSelected)
-//        print(tenPctButton.set)
-//        print(twentyPctButton.isSelected)
-//        if zeroPctButton.isSelected {
-//            zeroPctButton.titleLabel?.textColor = UIColor.red
-//        } else if tenPctButton.isSelected{
-//            tenPctButton.titleLabel?.textColor =   UIColor.red
-//        } else if twentyPctButton.isSelected{
-//            twentyPctButton.titleLabel?.textColor = UIColor.red
-//        }
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        splitNumberLabel.text = String(format: "%.0f",sender.value)
+        splitValue = Int(sender.value)
     }
     
     
     @IBAction func calculatePressed(_ sender: UIButton) {
+        print(tipValue)
     }
 }
 
