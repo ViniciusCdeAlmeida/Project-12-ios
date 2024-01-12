@@ -180,7 +180,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10f"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="calculatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac4-n6-Pgh"/>
+                                    <action selector="calulatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nz8-uP-VVr"/>
                                 </connections>
                             </button>
                         </subviews>

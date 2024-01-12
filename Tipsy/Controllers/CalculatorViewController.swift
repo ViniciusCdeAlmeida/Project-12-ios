@@ -22,7 +22,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var twentyPctButton: UIButton!
     
     @IBOutlet weak var splitNumberLabel: UILabel!
-    var tipValue: Float = 0.0
+    var tipValue: Double = 0.0
     var splitValue: Int = 0
     
     
@@ -54,8 +54,11 @@ class CalculatorViewController: UIViewController {
     }
     
     
-    @IBAction func calculatePressed(_ sender: UIButton) {
-        print(tipValue)
+    @IBAction func calulatePressed(_ sender: UIButton) {
+//        print(billTextField.hasText)
+        let percentValue = Double(billTextField.text!)! * tipValue
+        let totalValue = (percentValue + Double(billTextField.text!)!) / Double(splitValue)
+        print(totalValue)
     }
 }
 
