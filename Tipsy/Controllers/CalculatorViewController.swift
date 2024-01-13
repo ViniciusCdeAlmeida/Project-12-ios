@@ -25,6 +25,8 @@ class CalculatorViewController: UIViewController {
     var tipValue: Double = 0.0
     var splitValue: Int = 0
     
+    var tipCalculator = TipCalculator()
+    
     
     @IBAction func tipChanged(_ sender: UIButton) {
         
@@ -55,10 +57,20 @@ class CalculatorViewController: UIViewController {
     
     
     @IBAction func calulatePressed(_ sender: UIButton) {
-//        print(billTextField.hasText)
-        let percentValue = Double(billTextField.text!)! * tipValue
-        let totalValue = (percentValue + Double(billTextField.text!)!) / Double(splitValue)
-        print(totalValue)
+        tipCalculator.calculateBill(tipValue: tipValue, billValue: (Double(billTextField.text!))!, split: Double(splitValue))
+        
+        self.performSegue(withIdentifier: "goToTotal", sender:self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTotal" {
+            
+            let destination = segue.destination as! ResultsViewController
+
+            destination.total = tipCalculator.getTotalValue()
+            destination.aomuntText = tipCalculator.getAmountText()
+            
+        }
     }
 }
 
